@@ -331,6 +331,8 @@ namespace Preservados.Web.Models
 		
 		private int _Sexo;
 		
+		private System.Nullable<int> _Correctas;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -345,6 +347,8 @@ namespace Preservados.Web.Models
     partial void OnPreferenciaChanged();
     partial void OnSexoChanging(int value);
     partial void OnSexoChanged();
+    partial void OnCorrectasChanging(System.Nullable<int> value);
+    partial void OnCorrectasChanged();
     #endregion
 		
 		public Resultado()
@@ -448,6 +452,26 @@ namespace Preservados.Web.Models
 					this._Sexo = value;
 					this.SendPropertyChanged("Sexo");
 					this.OnSexoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correctas", DbType="Int")]
+		public System.Nullable<int> Correctas
+		{
+			get
+			{
+				return this._Correctas;
+			}
+			set
+			{
+				if ((this._Correctas != value))
+				{
+					this.OnCorrectasChanging(value);
+					this.SendPropertyChanging();
+					this._Correctas = value;
+					this.SendPropertyChanged("Correctas");
+					this.OnCorrectasChanged();
 				}
 			}
 		}

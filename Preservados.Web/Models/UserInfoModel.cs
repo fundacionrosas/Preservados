@@ -11,5 +11,6 @@ namespace Preservados.Web.Models
         public string nombre { get; set; }
         public int preferencia { get; set; }
         public int sexo { get; set; }
+        public int correctas { get; set; }
     }
 }

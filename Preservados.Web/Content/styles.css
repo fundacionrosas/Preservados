@@ -10,6 +10,19 @@ table {
     background-color: #1E679A;
 }
 
+.tipTitulo {
+    text-align: center;
+}
+
+.tipMessage {
+  border: 1px solid black;
+  background-color: rgb(35, 192, 35);
+  font-size: 14pt;
+  padding: 40px 10px 10px 10px;
+  margin: 113px 0px 0px 0px;
+  border-radius: 5px;
+}
+
 input, select {
   font-size: 27px;
   width: 100%;

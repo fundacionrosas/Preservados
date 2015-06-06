@@ -19,6 +19,7 @@
       <Column Name="Edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Preferencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Sexo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Correctas" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

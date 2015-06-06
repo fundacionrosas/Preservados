@@ -126,8 +126,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\check.png" />
     <Content Include="Content\styles.css" />
     <Content Include="Content\endWin.jpg" />
+    <Content Include="Content\wrong.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\main.js" />

@@ -24,9 +24,12 @@
             var respuesta = $(this).html();
 
             if (self._questions[self._currentQuestion].Correct === respuesta) {
-
+                self.userInfo.correctas++;
+                $('#check').attr('src', '/content/check.png');
+                $('.tipTitulo').html('Bien!!');
             } else {
-                
+                $('#check').attr('src', '/content/wrong.png');
+                $('.tipTitulo').html('Uhh, te equivocaste!!');
             }
 
             self._showPopup();
@@ -40,8 +43,9 @@
                 edad: parseInt($('#edad').val(), 10),
                 nombre: $('#nombre').val(),
                 preferencia: parseInt($('#gustos').val(), 10),
-                sexo: parseInt($('#sexo').val(), 10)
-            };1
+                sexo: parseInt($('#sexo').val(), 10),
+                correctas: 0
+            };
 
             self.showQuestion();
         });
@@ -57,7 +61,7 @@
 
     m.prototype._showPopup = function () {
         var self = this;
-        $('#tips').html(self._questions[self._currentQuestion].Tips);
+        $('.tipMessage').html(self._questions[self._currentQuestion].Tips);
         $('#tips').show();
     };
 

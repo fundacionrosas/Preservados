@@ -57,7 +57,8 @@ namespace Preservados.Web.Controllers
                 Edad = modelo.edad,
                 Nombre = modelo.nombre,
                 Preferencia = modelo.preferencia,
-                Sexo = modelo.sexo
+                Sexo = modelo.sexo,
+                Correctas = modelo.correctas
             });
 
             db.SubmitChanges();
