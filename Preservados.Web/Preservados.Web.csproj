@@ -165,6 +165,8 @@
     <None Include="Models\DBPreservados.dbml.layout">
       <DependentUpon>DBPreservados.dbml</DependentUpon>
     </None>
+    <None Include="Properties\PublishProfiles\preservados %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Preservados.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

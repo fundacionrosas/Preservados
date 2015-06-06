@@ -88,8 +88,6 @@
             success: function (result) {
                 $('#juego').hide();
                 $('#endWin').show();
-
-                $('.totalRespuestas').html("Acertaste " + self.userInfo.correctas + " de " + self._questions.length);
             },
             error: function (err) {
                 alert('Paso algo malo');
