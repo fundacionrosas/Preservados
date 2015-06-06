@@ -33,6 +33,9 @@ namespace Preservados.Web.Models
     partial void InsertQuestion(Question instance);
     partial void UpdateQuestion(Question instance);
     partial void DeleteQuestion(Question instance);
+    partial void InsertResultado(Resultado instance);
+    partial void UpdateResultado(Resultado instance);
+    partial void DeleteResultado(Resultado instance);
     #endregion
 		
 		public DBPreservadosDataContext() : 
@@ -72,6 +75,14 @@ namespace Preservados.Web.Models
 				return this.GetTable<Question>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Resultado> Resultados
+		{
+			get
+			{
+				return this.GetTable<Resultado>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Questions")]
@@ -94,6 +105,8 @@ namespace Preservados.Web.Models
 		
 		private string _Answer;
 		
+		private string _tip;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -112,6 +125,8 @@ namespace Preservados.Web.Models
     partial void OnQuestion4Changed();
     partial void OnAnswerChanging(string value);
     partial void OnAnswerChanged();
+    partial void OntipChanging(string value);
+    partial void OntipChanged();
     #endregion
 		
 		public Question()
@@ -139,7 +154,7 @@ namespace Preservados.Web.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionTitle", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionTitle", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string QuestionTitle
 		{
 			get
@@ -159,7 +174,7 @@ namespace Preservados.Web.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question1", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string Question1
 		{
 			get
@@ -179,7 +194,7 @@ namespace Preservados.Web.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question2", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question2", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string Question2
 		{
 			get
@@ -199,7 +214,7 @@ namespace Preservados.Web.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question3", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question3", DbType="NVarChar(MAX)")]
 		public string Question3
 		{
 			get
@@ -219,7 +234,7 @@ namespace Preservados.Web.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question4", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Question4", DbType="NVarChar(MAX)")]
 		public string Question4
 		{
 			get
@@ -239,7 +254,7 @@ namespace Preservados.Web.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Answer", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Answer", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string Answer
 		{
 			get
@@ -255,6 +270,184 @@ namespace Preservados.Web.Models
 					this._Answer = value;
 					this.SendPropertyChanged("Answer");
 					this.OnAnswerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tip", DbType="NVarChar(MAX)")]
+		public string tip
+		{
+			get
+			{
+				return this._tip;
+			}
+			set
+			{
+				if ((this._tip != value))
+				{
+					this.OntipChanging(value);
+					this.SendPropertyChanging();
+					this._tip = value;
+					this.SendPropertyChanged("tip");
+					this.OntipChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Resultados")]
+	public partial class Resultado : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ResultadoId;
+		
+		private string _Nombre;
+		
+		private int _Edad;
+		
+		private int _Preferencia;
+		
+		private int _Sexo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnResultadoIdChanging(int value);
+    partial void OnResultadoIdChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnEdadChanging(int value);
+    partial void OnEdadChanged();
+    partial void OnPreferenciaChanging(int value);
+    partial void OnPreferenciaChanged();
+    partial void OnSexoChanging(int value);
+    partial void OnSexoChanged();
+    #endregion
+		
+		public Resultado()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResultadoId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ResultadoId
+		{
+			get
+			{
+				return this._ResultadoId;
+			}
+			set
+			{
+				if ((this._ResultadoId != value))
+				{
+					this.OnResultadoIdChanging(value);
+					this.SendPropertyChanging();
+					this._ResultadoId = value;
+					this.SendPropertyChanged("ResultadoId");
+					this.OnResultadoIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(MAX)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Edad", DbType="Int NOT NULL")]
+		public int Edad
+		{
+			get
+			{
+				return this._Edad;
+			}
+			set
+			{
+				if ((this._Edad != value))
+				{
+					this.OnEdadChanging(value);
+					this.SendPropertyChanging();
+					this._Edad = value;
+					this.SendPropertyChanged("Edad");
+					this.OnEdadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Preferencia", DbType="Int NOT NULL")]
+		public int Preferencia
+		{
+			get
+			{
+				return this._Preferencia;
+			}
+			set
+			{
+				if ((this._Preferencia != value))
+				{
+					this.OnPreferenciaChanging(value);
+					this.SendPropertyChanging();
+					this._Preferencia = value;
+					this.SendPropertyChanged("Preferencia");
+					this.OnPreferenciaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sexo", DbType="Int NOT NULL")]
+		public int Sexo
+		{
+			get
+			{
+				return this._Sexo;
+			}
+			set
+			{
+				if ((this._Sexo != value))
+				{
+					this.OnSexoChanging(value);
+					this.SendPropertyChanging();
+					this._Sexo = value;
+					this.SendPropertyChanged("Sexo");
+					this.OnSexoChanged();
 				}
 			}
 		}

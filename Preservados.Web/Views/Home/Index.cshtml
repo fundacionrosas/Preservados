@@ -8,8 +8,57 @@
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/main.js"></script>
 </head>
-<body bgcolor="#333333">
-    <table width="720" height="480" cellspacing="1" cellpadding="3" border="0" bgcolor="#1E679A">
+<body>
+
+    <div id="endWin" class="popup">
+        <img src="~/Content/endWin.jpg" />
+    </div>
+
+    <div id="inicio" class="popup">
+        <span>Escribe tu nombre</span>
+        <br />
+        <input type="text" value="" placeholder="Introduce tu nombre" id="nombre" />
+        <br />
+        <span>Selecciona tu edad</span>
+        <br />
+        <select id="edad">
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+        </select>
+        <br />
+        <span>Que te gusta?</span>
+        <br />
+        <select id="gustos">
+            <option value="0">Me gustan los chicos</option>
+            <option value="1">Me gustan las chicas</option>
+        </select>
+        <span>Soy?</span>
+        <br />
+        <select id="sexo">
+            <option value="0">Hombre</option>
+            <option value="1">Mujer</option>
+        </select>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div id="jugar" style="text-align:center" class="buttonQuestion">JUGAR</div>
+    </div>
+
+    <div id="tips" class="popup">
+        aslkdjsakdhsjakhdsjakhdk sajkd hsajkd hsajkd hsjakdh ksjad 
+    </div>
+
+    <table id="juego">
         <tr>
             <td>
                 <font color="#FFFFFF" face="arial, verdana, helvetica">
@@ -23,10 +72,10 @@
                 <br />
                 <br />
                 <center>
-                    <div id="q0" class="buttonQuestion"></div>
-                    <div id="q1" class="buttonQuestion"></div>
-                    <div id="q2" class="buttonQuestion"></div>
-                    <div id="q3" class="buttonQuestion"></div>
+                    <div id="q0" class="buttonQuestion action"></div>
+                    <div id="q1" class="buttonQuestion action"></div>
+                    <div id="q2" class="buttonQuestion action"></div>
+                    <div id="q3" class="buttonQuestion action"></div>
                 </center>
                 
             </td>

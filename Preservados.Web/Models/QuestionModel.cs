@@ -14,5 +14,7 @@ namespace Preservados.Web.Models
         public List<string> Questions { get; set; }
 
         public string Correct { get; set; }
+
+        public string Tips { get; set; }
     }
 }

@@ -20,27 +20,75 @@
             }
         });
 
-        $('.buttonQuestion').on('click', function () {
+        $('.buttonQuestion.action').on('click', function () {
             var respuesta = $(this).html();
 
             if (self._questions[self._currentQuestion].Correct === respuesta) {
-                alert('Le pegaste');
-                self.next();
+
             } else {
-                alert('Nada vieja!');
+                
             }
+
+            self._showPopup();
         });
 
-        self.showQuestion();
+        $('#jugar').on('click', function () {
+            $('#juego').show();
+            $('#inicio').hide();
+
+            self.userInfo = {
+                edad: parseInt($('#edad').val(), 10),
+                nombre: $('#nombre').val(),
+                preferencia: parseInt($('#gustos').val(), 10),
+                sexo: parseInt($('#sexo').val(), 10)
+            };1
+
+            self.showQuestion();
+        });
+
+        $('#tips').on('click', function () {
+            $('#tips').hide();
+            self.next();
+        });
+
+        $('#juego').hide();
+        $('#inicio').show();
+    };
+
+    m.prototype._showPopup = function () {
+        var self = this;
+        $('#tips').html(self._questions[self._currentQuestion].Tips);
+        $('#tips').show();
     };
 
     m.prototype.next = function () {
-        this._currentQuestion++;
-        this.showQuestion();
+        var self = this;
+
+        self._currentQuestion++;
+
+        if (this._currentQuestion < self._questions.length) {
+            this.showQuestion();
+        } else {
+            this.endGame();
+        }
     };
 
-    m.prototype._sendAnswer = function () {
+    m.prototype.endGame = function () {
+        var self = this;
 
+        $.ajax({
+            url: '/home/setData',
+            type: "POST",
+            data: self.userInfo,
+            async: true,
+            success: function (result) {
+                $('#juego').hide();
+                $('#endWin').show();
+            },
+            error: function (err) {
+                alert('Paso algo malo');
+            }
+        });
     };
 
     m.prototype.showQuestion = function () {

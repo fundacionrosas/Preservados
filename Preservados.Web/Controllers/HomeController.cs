@@ -35,7 +35,8 @@ namespace Preservados.Web.Controllers
                     {
                         item.Question1, item.Question2,
                         item.Question3, item.Question4
-                    }
+                    },
+                    Tips = item.tip
                 });
             }
             
@@ -46,5 +47,25 @@ namespace Preservados.Web.Controllers
             };
         }
 
+        [HttpPost]
+        public JsonResult SetData(UserInfoModel modelo)
+        {
+            var db = new DBPreservadosDataContext();
+
+            db.Resultados.InsertOnSubmit(new Resultado()
+            {
+                Edad = modelo.edad,
+                Nombre = modelo.nombre,
+                Preferencia = modelo.preferencia,
+                Sexo = modelo.sexo
+            });
+
+            db.SubmitChanges();
+
+            return new JsonResult()
+            {
+                Data = new { status = "ok" }
+            };
+        }
     }
 }

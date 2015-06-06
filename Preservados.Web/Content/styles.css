@@ -1,4 +1,39 @@
 ﻿body {
+    background-color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    background-color: #1E679A;
+}
+
+input, select {
+  font-size: 27px;
+  width: 100%;
+}
+
+.popup span {
+    font-size: 30pt;
+    font-family: Arial;
+}
+
+.popup {
+    display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  top: 100px;
+  right: 50px;
+  left: 50px;
+  height: calc(100% - 200px);
+  font-size: 20pt;
+  font-family: arial;
+  box-shadow: 6px 3px 15px;
 }
 
 .titleQuestions {
@@ -15,4 +50,9 @@
   line-height: 36pt;
   font-size: 20pt;
   font-family: arial;
+  cursor: pointer;
+}
+
+.buttonQuestion:hover {
+    background-color: rgb(140, 151, 226);
 }
