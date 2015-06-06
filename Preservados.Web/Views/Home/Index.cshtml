@@ -1,5 +1,40 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Preservados";
 }
+<html>
+<head>
+    <title>PRESERVADOS - FUNDACION ROSAS</title>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+</head>
+<body bgcolor="#333333">
+    <table width="720" height="480" cellspacing="1" cellpadding="3" border="0" bgcolor="#1E679A">
+        <tr>
+            <td>
+                <font color="#FFFFFF" face="arial, verdana, helvetica">
+                    <center><b>PRESERVADOS</b></center>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <div id="title" class="titleQuestions"></div>
+                <br />
+                <br />
+                <center>
+                    <div id="q0" class="buttonQuestion"></div>
+                    <div id="q1" class="buttonQuestion"></div>
+                    <div id="q2" class="buttonQuestion"></div>
+                    <div id="q3" class="buttonQuestion"></div>
+                </center>
+                
+            </td>
+        </tr>
+    </table>
+    <script>
+        var app = new main();
 
-<h2>Index</h2>
+    </script>
+</body>
+</html>

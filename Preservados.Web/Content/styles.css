@@ -1,0 +1,18 @@
+﻿body {
+}
+
+.titleQuestions {
+  text-align: center;
+  font-size: 40pt;
+  font-family: arial;
+}
+
+.buttonQuestion {
+  width: 90%;
+  background-color: rgb(140, 140, 226);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  line-height: 36pt;
+  font-size: 20pt;
+  font-family: arial;
+}
